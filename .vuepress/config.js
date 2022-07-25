@@ -1,9 +1,9 @@
 module.exports = {
-  "title": "air",
-  "description": "this is a blog",
-  "base":'/jing-byte.github.io/',
-  "dest": "public",
-  "head": [
+  title: "jing-blog",
+  description: "this is a blog",
+  base:'/jing-byte.github.io/',
+  dest: "public",
+  head: [
     [
       "link",
       {
@@ -19,72 +19,85 @@ module.exports = {
       }
     ]
   ],
-  "theme": "reco",
-  "locales": {
+  theme: "reco",
+  locales: {
       '/': {
         "lang": 'zh-CN'
       }
   },
-  "themeConfig": {
-    "nav": [//导航栏
+  themeConfig: {
+    sidebarDepth: 3,
+    navBar: true,
+    lastUpdated: '上次更新',
+    nav: [//导航栏
       {
-        "text": "Home",
-        "link": "/",
-        "icon": "reco-home"
-      },
-      {
-        "text": "TimeLine",
-        "link": "/timeline/",
-        "icon": "reco-date"
-      },
-      {
-        "text": "Docs",
-        "icon": "reco-message",
-        "items": [
-          {
-            "text": "vuepress-reco",
-            "link": "/docs/theme-reco/"
-          }
+        text: "js",
+        items: [
+          { text: 'js杂记', link: '/src/js/js' },
+          // { text: '解决跨域', link: '/basis/CrossDomain' },
         ]
+        // "link": "/",
+        // "items": [
+        //   {
+        //     "text": "vuepress-reco",
+        //     "link": "/docs/theme-reco/"
+        //   }
+        // ]
       },
-      {
-        "text": "Contact",
-        "icon": "reco-message",
-        "items": [
-          {
-            "text": "GitHub",
-            "link": "https://github.com/recoluan",
-            "icon": "reco-github"
-          }
-        ]
-      }
+      // {
+      //   "text": "TimeLine",
+      //   "link": "/timeline/",
+      // },
+      // {
+      //   "text": "Docs",
+      //   "items": [
+      //     {
+      //       "text": "vuepress-reco",
+      //       "link": "/docs/theme-reco/"
+      //     }
+      //   ]
+      // },
+      // {
+      //   "text": "Contact",
+      //   "icon": "reco-message",
+      //   "items": [
+      //     {
+      //       "text": "GitHub",
+      //       "link": "https://github.com/recoluan",
+      //       "icon": "reco-github"
+      //     }
+      //   ]
+      // }
     ],
-    "sidebar": {
-      "/docs/theme-reco/": [
-        "",
-        "theme",
-        "plugin",
-        "api"
-      ]
+    sidebar: {
+      "/docs/theme-reco/":genSidebarConfig('js杂记',['js'])
+      // "/docs/theme-reco/": [
+      //   "",
+      //   "theme",
+      //   "plugin",
+      //   "api"
+      // ]
+      
+
     },
-    "type": "blog",
-    "blogConfig": {
+    type: "blog",
+    blogConfig: {
       "category": {
         "location": 2,
         "text": "Category"
       },
-      "tag": {
+      tag: {
         "location": 3,
         "text": "Tag"
       }
     },
-    "friendLink": [//友链
-      {
-        "title": "午后南杂",
-        "desc": "Enjoy when you can, and endure when you must.",
-        "email": "1156743527@qq.com",
-        "link": "https://www.recoluan.com"
-      },
+    friendLink: [//友链
+      // {
+      //   "title": "午后南杂",
+      //   "desc": "Enjoy when you can, and endure when you must.",
+      //   "email": "1156743527@qq.com",
+      //   "link": "https://www.recoluan.com"
+      // },
       {
         "title": "vuepress-theme-reco",
         "desc": "A simple and beautiful vuepress Blog & Doc theme.",
@@ -92,16 +105,31 @@ module.exports = {
         "link": "https://vuepress-theme-reco.recoluan.com"
       }
     ],
-    "logo": "/logo.png",
-    "search": true,
-    "searchMaxSuggestions": 10,
-    "lastUpdated": "Last Updated",
-    "author": "air",
-    "authorAvatar": "/avatar.png",
-    "record": "xxxx",
-    "startYear": "2017"
+    logo: "/logo.png",
+    search: true,
+    searchMaxSuggestions: 10,
+    lastUpdated: "Last Updated",
+    author: "air",
+    authorAvatar: "/avatar.png",
+    record: "xxxx",
+    startYear: "2017"
   },
-  "markdown": {
+  markdown: {
     "lineNumbers": true
-  }
+  },
+  plugins: [
+    [
+      '@vuepress/last-updated',
+      {
+        dateOptions: {
+          hour12: false
+        }
+      }
+    ]
+  ]
+}
+function genSidebarConfig(title, children) {
+  return [
+    { title, children }
+  ]
 }

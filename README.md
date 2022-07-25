@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: vuepress-theme-reco
-tagline: A simple and beautiful vuepress blog theme.
+heroText: Keep Learning，持续精进
+tagline: this is jing blog
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',
