@@ -1,8 +1,8 @@
 ---
-title: 'JS基础',
+title: 'JS'
 sidebar: auto
 collapsable: true
 tags:
- - js
+ - js基础
 ---
-## 什么是跨域
+<!-- ## 什么是跨域 -->
