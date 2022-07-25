@@ -1,6 +1,7 @@
 module.exports = {
   "title": "air",
   "description": "this is a blog",
+  "base":'/jing-byte.github.io/',
   "dest": "public",
   "head": [
     [
@@ -19,6 +20,11 @@ module.exports = {
     ]
   ],
   "theme": "reco",
+  "locales": {
+      '/': {
+        "lang": 'zh-CN'
+      }
+  },
   "themeConfig": {
     "nav": [//导航栏
       {
